@@ -8,7 +8,6 @@ interface FooterProps {
 
 export default function Footer({ onScrollToTop, language = 'kr' }: FooterProps) {
   const currentYear = new Date().getFullYear();
-  const [logoError, setLogoError] = useState(false);
 
   return (
     <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900 text-left" id="footer-section">
@@ -18,31 +17,20 @@ export default function Footer({ onScrollToTop, language = 'kr' }: FooterProps) 
           {/* Brand block */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
-            {!logoError ? (
               <div className="bg-white px-4 py-2 rounded-lg inline-flex items-center justify-center shadow-sm">
                 <img 
-                  src="/images/logo/hyungje-logo-header.png" 
+                  src="https://lh3.googleusercontent.com/d/1p-fKl_g2Z1t3eJcvTsUU02Yy3vKWLyLF" 
                   alt="형제산업기공" 
                   className="h-[32px] w-auto object-contain"
-                  onError={() => setLogoError(true)}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (target.src !== '/images/logo/hyungje-logo-header.png') {
+                      target.src = '/images/logo/hyungje-logo-header.png';
+                    }
+                  }}
                   referrerPolicy="no-referrer"
                 />
               </div>
-            ) : (
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0F5A9E] to-[#1E293B] flex items-center justify-center shadow-md shrink-0">
-                  <span className="text-white font-extrabold text-xs tracking-tight font-sans">HJ</span>
-                </div>
-                <div className="flex flex-col min-w-0">
-                  <span className="text-base font-black tracking-tight text-white leading-none">
-                    형제산업기공
-                  </span>
-                  <span className="text-[8px] font-bold tracking-widest text-slate-400 uppercase mt-0.5 leading-none font-mono">
-                    HYUNGJE CO.
-                  </span>
-                </div>
-              </div>
-            )}
             </div>
             
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light max-w-sm">

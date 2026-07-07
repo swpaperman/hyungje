@@ -11,7 +11,6 @@ interface HeaderProps {
 export default function Header({ onNavigate, activeSection, language, setLanguage }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,30 +54,18 @@ export default function Header({ onNavigate, activeSection, language, setLanguag
             className="flex min-w-0 items-center cursor-pointer group shrink animate-fade-in"
             id="header-logo"
           >
-            {!logoError ? (
-              <img 
-                src="/images/logo/hyungje-logo-header.png" 
-                alt="형제산업기공 로고" 
-                className="h-[44px] lg:h-[52px] w-auto object-contain block group-hover:scale-[1.02] transition-transform duration-300"
-                onError={() => setLogoError(true)}
-                referrerPolicy="no-referrer"
-              />
-            ) : (
-              <div className="flex items-center gap-2.5">
-                {/* Logo Mark: Premium Hexagon/Shield Symbol matching Concept C */}
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0F5A9E] to-[#071A2B] flex items-center justify-center shadow-md shadow-blue-900/10 shrink-0">
-                  <span className="text-white font-extrabold text-sm tracking-tight font-sans">HJ</span>
-                </div>
-                <div className="flex flex-col min-w-0">
-                  <span className="text-base lg:text-lg font-black tracking-tight text-[#071A2B] leading-none">
-                    형제산업기공
-                  </span>
-                  <span className="text-[9px] font-bold tracking-widest text-blue-600 uppercase mt-1 leading-none font-mono">
-                    HYUNGJE CO.
-                  </span>
-                </div>
-              </div>
-            )}
+            <img 
+              src="https://lh3.googleusercontent.com/d/1p-fKl_g2Z1t3eJcvTsUU02Yy3vKWLyLF" 
+              alt="형제산업기공 로고" 
+              className="h-[40px] sm:h-[46px] lg:h-[50px] w-auto object-contain block group-hover:scale-[1.02] transition-transform duration-300"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (target.src !== '/images/logo/hyungje-logo-header.png') {
+                  target.src = '/images/logo/hyungje-logo-header.png';
+                }
+              }}
+              referrerPolicy="no-referrer"
+            />
           </div>
 
           {/* Desktop Navigation */}
