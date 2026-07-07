@@ -1,0 +1,6 @@
+{
+  "name": "형제산업기공",
+  "description": "정밀 금형 설계·제작 및 금속 프레스 가공 전문 기업 형제산업기공의 공식 B2B 홈페이지입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
