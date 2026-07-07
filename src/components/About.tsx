@@ -2,6 +2,11 @@ import React from 'react';
 import { Shield, Hammer, RefreshCw, Check, Award, Layers, Cpu, Target } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
+// Import CI images to ensure Vite bundles and hashes them correctly in production builds
+import ciConcept2 from '../assets/hyungje-ci-concept-c-2.png';
+import ciConcept3 from '../assets/hyungje-ci-concept-c-3.png';
+import ciConcept4 from '../assets/hyungje-ci-concept-c-4.png';
+
 interface AboutProps {
   language?: 'kr' | 'en';
 }
@@ -15,7 +20,7 @@ export default function About({ language = 'kr' }: AboutProps) {
       id: 0,
       labelKr: '심볼 구조',
       labelEn: 'Symbol Structure',
-      imgUrl: '/images/logo/hyungje-ci-concept-c-2.png',
+      imgUrl: ciConcept2,
       altKr: '형제산업기공 컨셉 C 브랜드 심볼 분석 및 그리드',
       altEn: 'Hyungje Industrial Engineering Concept C Symbol Analysis and Grid',
     },
@@ -23,7 +28,7 @@ export default function About({ language = 'kr' }: AboutProps) {
       id: 1,
       labelKr: '적용 예시(세로)',
       labelEn: 'App (Vert.)',
-      imgUrl: '/images/logo/hyungje-ci-concept-c-3.png',
+      imgUrl: ciConcept3,
       altKr: '형제산업기공 컨셉 C 브랜드 적용 예시 (세로 명함/서식류)',
       altEn: 'Hyungje Industrial Engineering Concept C Applications (Vertical)',
     },
@@ -31,7 +36,7 @@ export default function About({ language = 'kr' }: AboutProps) {
       id: 2,
       labelKr: '적용 예시(가로)',
       labelEn: 'App (Horiz.)',
-      imgUrl: '/images/logo/hyungje-ci-concept-c-4.png',
+      imgUrl: ciConcept4,
       altKr: '형제산업기공 컨셉 C 브랜드 적용 예시 (가로 명함/서식류)',
       altEn: 'Hyungje Industrial Engineering Concept C Applications (Horizontal)',
     }
